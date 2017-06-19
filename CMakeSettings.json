@@ -1,0 +1,97 @@
+{
+    // See https://go.microsoft.com//fwlink//?linkid=834763 for more information about this file.
+    "configurations": [
+      {
+        "name": "x86-Debug",
+        "generator": "Visual Studio 15 2017",
+        "configurationType": "Debug",
+        "buildRoot": "${workspaceRoot}/build/${workspaceHash}/${name}",
+        "cmakeCommandArgs": "",
+        "buildCommandArgs": "-m -v:minimal",
+        "ctestCommandArgs": "",
+        "variables": [
+          {
+            "name": "BOOST_ROOT",
+            "value": "E:/Programmieren/C++/boost_1_63_0"
+          },
+          {
+            "name": "Boost_COMPILER",
+            "value": "-vc140"
+          },
+          {
+            "name": "BOOST_LIBRARYDIR",
+            "value": "E:/Programmieren/C++/boost_1_63_0/stage/lib"
+          }
+        ]
+      },
+      {
+        "name": "x86-Release",
+        "generator": "Visual Studio 15 2017",
+        "configurationType": "Release",
+        "buildRoot": "${workspaceRoot}/build/${workspaceHash}/${name}",
+        "cmakeCommandArgs": "",
+        "buildCommandArgs": "-m -v:minimal",
+        "ctestCommandArgs": "",
+        "variables": [
+          {
+            "name": "BOOST_ROOT",
+            "value": "E:/Programmieren/C++/boost_1_63_0"
+          },
+          {
+            "name": "Boost_COMPILER",
+            "value": "-vc140"
+          },
+          {
+            "name": "BOOST_LIBRARYDIR",
+            "value": "E:/Programmieren/C++/boost_1_63_0/stage/lib"
+          }
+        ]
+      },
+      {
+        "name": "x64-Debug",
+        "generator": "Visual Studio 15 2017 Win64",
+        "configurationType": "Debug",
+        "buildRoot": "${workspaceRoot}/build/${workspaceHash}/${name}",
+        "cmakeCommandArgs": "",
+        "buildCommandArgs": "-m -v:minimal",
+        "ctestCommandArgs": "",
+        "variables": [
+          {
+            "name": "BOOST_ROOT",
+            "value": "E:/Programmieren/C++/boost_1_63_0"
+          },
+          {
+            "name": "Boost_COMPILER",
+            "value": "-vc140"
+          },
+          {
+            "name": "BOOST_LIBRARYDIR",
+            "value": "E:/Programmieren/C++/boost_1_63_0/stage_64/lib"
+          }
+        ]
+      },
+      {
+        "name": "x64-Release",
+        "generator": "Visual Studio 15 2017 Win64",
+        "configurationType": "Release",
+        "buildRoot": "${workspaceRoot}/build/${workspaceHash}/${name}",
+        "cmakeCommandArgs": "",
+        "buildCommandArgs": "-m -v:minimal",
+        "ctestCommandArgs": "",
+        "variables": [
+          {
+            "name": "BOOST_ROOT",
+            "value": "E:/Programmieren/C++/boost_1_63_0"
+          },
+          {
+            "name": "Boost_COMPILER",
+            "value": "-vc140"
+          },
+          {
+            "name": "BOOST_LIBRARYDIR",
+            "value": "E:/Programmieren/C++/boost_1_63_0/stage_64/lib"
+          }
+        ]
+      }
+    ]
+}
