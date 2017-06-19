@@ -9,14 +9,23 @@ cache:
 
 matrix:
   include:
+    # GCC 6
     - os: linux
       compiler: gcc
-      env: BUILD_TYPE=Debug COVERALLS=ON COMPILER=GCC BOOST_VERSION=1.63.0
+      env: BUILD_TYPE=Debug COVERALLS=ON COMPILER=g++6 BOOST_VERSION=1.63.0
+      addons: &gcc5
+        apt:
+          packages:
+            - g++-5
+          sources:
+            - ubuntu-toolchain-r-test
 
     - os: linux
       compiler: gcc
-      env: BUILD_TYPE=Release COVERALLS=OFF COMPILER=GCC BOOST_VERSION=1.63.0
-    
+      env: BUILD_TYPE=Release COVERALLS=OFF COMPILER=g++6 BOOST_VERSION=1.63.0
+      addons: *gcc5
+
+    # Clang
     - os: linux
       compiler: clang
       env: BUILD_TYPE=Debug COVERALLS=OFF COMPILER=CLANG BOOST_VERSION=1.63.0
@@ -34,6 +43,9 @@ matrix:
       env: BUILD_TYPE=Release COVERALLS=OFF COMPILER=CLANG BOOST_VERSION=1.63.0
 
 install:
+  # Set the Compiler
+  - if [[ "${COMPILER}" != "" ]]; then export CXX=${COMPILER}; fi
+
   # Install Boost
   - BOOST_DIR=${TRAVIS_BUILD_DIR}/deps/boost-${BOOST_VERSION}
   - mkdir -p ${BOOST_DIR} && cd ${BOOST_DIR}
