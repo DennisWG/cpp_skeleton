@@ -24,10 +24,7 @@ build_script:
   - cmake -version
   - echo %platform%
   - echo %configuration%
-  - echo %BOOST_ROOT%
-  - echo %BOOST_LIBRARYDIR%
-  - cd %BOOST_ROOT%
-  - dir
+  - dir C:\Libraries
 
   - cd c:\projects\cpp_skeleton
   - mkdir build
