@@ -29,18 +29,10 @@ matrix:
     - os: linux
       compiler: clang
       env: BUILD_TYPE=Debug COVERALLS=OFF LLVM_VERSION=3.7 BOOST_VERSION=1.63.0
-      addons: &clang37
-        apt:
-          packages:
-            - util-linux
-            - clang-3.7
-          sources:
-            - llvm-toolchain-precise-3.7
 
     - os: linux
       compiler: clang
       env: BUILD_TYPE=Release COVERALLS=OFF LLVM_VERSION=3.7 BOOST_VERSION=1.63.0
-      addons: *clang37
 
 #    - os: osx
 #      compiler: clang
