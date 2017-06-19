@@ -1,0 +1,16 @@
+AlignOperands: 'true'
+AlignTrailingComments: 'true'
+AllowShortBlocksOnASingleLine: 'false'
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: 'false'
+AllowShortLoopsOnASingleLine: 'false'
+AlwaysBreakAfterDefinitionReturnType: None
+AlwaysBreakAfterReturnType: None
+AlwaysBreakTemplateDeclarations: 'true'
+BreakBeforeBraces: Allman
+Cpp11BracedListStyle: 'true'
+IndentCaseLabels: 'false'
+IndentWidth: '4'
+Language: Cpp
+Standard: Cpp11
+UseTab: Never
