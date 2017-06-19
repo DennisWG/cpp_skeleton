@@ -18,7 +18,8 @@ configuration:
 clone_folder: C:\projects\cpp_skeleton
 
 branches:
-  only: master
+  only: 
+    - master
 
 build_script:
   - cmake -version
