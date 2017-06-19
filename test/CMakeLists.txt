@@ -9,3 +9,7 @@ target_link_libraries(test_cpp_skeleton
 )
 
 add_test(test_cpp_skeleton test_cpp_skeleton)
+
+install(TARGETS test_cpp_skeleton
+    RUNTIME  DESTINATION ${CMAKE_INSTALL_BINDIR}
+)

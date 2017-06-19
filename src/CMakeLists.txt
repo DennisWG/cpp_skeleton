@@ -21,7 +21,7 @@ target_link_libraries(lib_cpp_skeleton
 install(TARGETS lib_cpp_skeleton EXPORT cpp_skeleton_config
     ARCHIVE  DESTINATION ${CMAKE_INSTALL_LIBDIR}
     LIBRARY  DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    RUNTIME  DESTINATION ${CMAKE_INSTALL_BINDIR}  # This is for Windows
+    RUNTIME  DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 install(DIRECTORY ../include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
