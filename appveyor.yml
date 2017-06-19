@@ -9,7 +9,6 @@ environment:
 
 platform:
   - x86
-  - x64
   
 configuration:
   - Debug
@@ -30,7 +29,7 @@ build_script:
   - mkdir build
   - cd build
   - if "%platform%" == "x64" set cmake_platform=%platform%
-  - cmake -g "Visual Studio 15 2017" .. -DCMAKE_GENERATOR_PLATFORM=%cmake_platform%
+  - cmake -g "Visual Studio 15 2017" .. -DCMAKE_GENERATOR_PLATFORM=%cmake_platform% -DBOOST_ROOT="%BOOST_ROOT%" -DBOOST_LIBRARYDIR="%BOOST_LIBRARYDIR%" -DBoost_USE_STATIC_LIBS="ON"
 
   # build it
   - if "%platform%" == "x86" set msbuild_platform=Win32
