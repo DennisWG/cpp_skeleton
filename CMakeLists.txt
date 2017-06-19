@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.2 FATAL_ERROR)
-project(event_handler VERSION 0.1 LANGUAGES CXX)
+project(cpp_skeleton VERSION 0.1 LANGUAGES CXX)
 
 include(GNUInstallDirs)
 
