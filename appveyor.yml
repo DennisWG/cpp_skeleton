@@ -1,0 +1,37 @@
+shallow_clone: true
+  
+os: Visual Studio 2017
+
+environment:
+  MSVC_DEFAULT_OPTIONS: ON
+  BOOST_ROOT: C:\Libraries\boost_1_63_0
+  BOOST_LIBRARYDIR: C:\Libraries\boost_1_63_0\lib32-msvc-14.0
+
+platform:
+  - x86
+  - x64
+  
+configuration:
+  - Debug
+  - Release
+
+clone_folder: C:\projects\cpp_skeleton
+
+branches:
+  only: master
+
+build_script:
+  - cmake -version
+  - echo %platform%
+  - echo %configuration%
+
+  - cd c:\projects\cpp_skeleton
+  - mkdir build
+  - cd build
+  - if "%platform%" == "x64" set cmake_platform=%platform%
+  - cmake -g "Visual Studio 15 2017" .. -DCMAKE_GENERATOR_PLATFORM=%cmake_platform%
+
+  # build it
+  - if "%platform%" == "x86" set msbuild_platform=Win32
+  - if "%platform%" == "x64" set msbuild_platform=%platform%
+  - msbuild cpp_skeleton.sln /p:Configuration=%configuration% /toolsversion:14.0 /p:PlatformToolset=v140 /p:Platform=%msbuild_platform%
