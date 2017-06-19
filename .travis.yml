@@ -32,25 +32,25 @@ matrix:
       addons: &clang37
         apt:
           packages:
-            - lldb-3.8
+            - util-linux
             - clang-3.7
           sources:
             - llvm-toolchain-precise-3.7
-    
+
     - os: linux
       compiler: clang
       env: BUILD_TYPE=Release COVERALLS=OFF COMPILER=clang++-3.7 BOOST_VERSION=1.63.0
       addons: *clang37
-    
-    - os: osx
-      compiler: clang
-      env: BUILD_TYPE=Debug COVERALLS=OFF COMPILER=clang++-3.7 BOOST_VERSION=1.63.0
-      addons: *clang37
-    
-    - os: osx
-      compiler: clang
-      env: BUILD_TYPE=Release COVERALLS=OFF COMPILER=clang++-3.7 BOOST_VERSION=1.63.0
-      addons: *clang37
+
+#    - os: osx
+#      compiler: clang
+#      env: BUILD_TYPE=Debug COVERALLS=OFF COMPILER=clang++-3.7 BOOST_VERSION=1.63.0
+#      addons: *clang37
+#
+#    - os: osx
+#      compiler: clang
+#     env: BUILD_TYPE=Release COVERALLS=OFF COMPILER=clang++-3.7 BOOST_VERSION=1.63.0
+#     addons: *clang37
 
 install:
   # Set the Compiler
@@ -70,7 +70,7 @@ install:
           { travis_retry wget --quiet -O - ${BOOST_URL} | tar --strip-components=1 -xz -C ${BOOST_DIR}; } || exit 1
       fi
       CMAKE_OPTIONS+=" -DBOOST_ROOT=${BOOST_DIR}"
-      
+
   # Install a newer CMake
   - cd ${TRAVIS_BUILD_DIR}/deps
   - |
