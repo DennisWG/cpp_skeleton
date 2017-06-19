@@ -26,6 +26,8 @@ build_script:
   - echo %configuration%
   - echo %BOOST_ROOT%
   - echo %BOOST_LIBRARYDIR%
+  - cd %BOOST_ROOT%
+  - dir
 
   - cd c:\projects\cpp_skeleton
   - mkdir build
