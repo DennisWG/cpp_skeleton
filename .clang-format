@@ -12,5 +12,6 @@ Cpp11BracedListStyle: 'true'
 IndentCaseLabels: 'false'
 IndentWidth: '4'
 Language: Cpp
+NamespaceIndentation: All
 Standard: Cpp11
 UseTab: Never
