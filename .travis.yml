@@ -76,6 +76,6 @@ install:
 script:
   - BUILD_DIR=${TRAVIS_BUILD_DIR}/build
   - mkdir -p ${BUILD_DIR} && cd ${BUILD_DIR}
-  - cmake --version
   - cmake .. ${CMAKE_OPTIONS}
+  - make
   - if [ "$BUILD_TYPE" == "Debug" ] || [ "$BUILD_TYPE" == "Release" ]; then ctest -VV --schedule-random; fi
