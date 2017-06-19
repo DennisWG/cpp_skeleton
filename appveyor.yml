@@ -32,10 +32,13 @@ build_script:
   - if "%platform%" == "x64" set cmake_platform=%platform%
   - if "%platform%" == "x64" set BOOST_LIBRARYDIR="C:\Libraries\boost_1_64_0\lib64-msvc-14.0"
   - cmake -g "Visual Studio 15 2017" .. -DCMAKE_GENERATOR_PLATFORM=%cmake_platform% -DBOOST_ROOT="%BOOST_ROOT%" -DBOOST_LIBRARYDIR="%BOOST_LIBRARYDIR%" -DBoost_USE_STATIC_LIBS="ON"
-
-  - dir
   
   # build it
   - if "%platform%" == "x86" set msbuild_platform=Win32
   - if "%platform%" == "x64" set msbuild_platform=%platform%
   - msbuild cpp_skeleton.sln /p:Configuration=%configuration% /toolsversion:14.0 /p:PlatformToolset=v140 /p:Platform=%msbuild_platform%
+  - dir
+
+test_script:
+  - ps: cd c:\projects\cpp_skeleton\build
+  - ctest -VV -C "%CONFIG%"
