@@ -13,17 +13,17 @@ matrix:
     - os: linux
       compiler: gcc
       env: BUILD_TYPE=Debug COVERALLS=ON COMPILER=g++6 BOOST_VERSION=1.63.0
-      addons: &gcc5
+      addons: &gcc6
         apt:
           packages:
-            - g++-5
+            - g++-6
           sources:
             - ubuntu-toolchain-r-test
 
     - os: linux
       compiler: gcc
       env: BUILD_TYPE=Release COVERALLS=OFF COMPILER=g++6 BOOST_VERSION=1.63.0
-      addons: *gcc5
+      addons: *gcc6
 
     # Clang
     - os: linux
