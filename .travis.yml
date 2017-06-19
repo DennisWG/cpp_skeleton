@@ -11,51 +11,27 @@ matrix:
   include:
     - os: linux
       compiler: gcc
-      env:
-		- BUILD_TYPE=Debug
-		- COVERALLS=ON
-		- COMPILER=GCC
-		- BOOST_VERSION=1.63
-		
+      env: BUILD_TYPE=Debug COVERALLS=ON COMPILER=GCC BOOST_VERSION=1.63
+
     - os: linux
       compiler: gcc
-      env:
-	    - BUILD_TYPE=Release
-		- COVERALLS=OFF
-		- COMPILER=GCC
-		- BOOST_VERSION=1.63
-		
+      env: BUILD_TYPE=Release COVERALLS=OFF COMPILER=GCC BOOST_VERSION=1.63
+    
     - os: linux
       compiler: clang
-      env:
-		- BUILD_TYPE=Debug
-		- COVERALLS=OFF
-		- COMPILER=CLANG
-		- BOOST_VERSION=1.63
-		
+      env: BUILD_TYPE=Debug COVERALLS=OFF COMPILER=CLANG BOOST_VERSION=1.63
+    
     - os: linux
       compiler: clang
-      env:
-		- BUILD_TYPE=Release
-		- COVERALLS=OFF
-		- COMPILER=CLANG
-		- BOOST_VERSION=1.63
-		
+      env: BUILD_TYPE=Release COVERALLS=OFF COMPILER=CLANG BOOST_VERSION=1.63
+    
     - os: osx
       compiler: clang
-      env:
-		- BUILD_TYPE=Debug
-		- COVERALLS=OFF
-		- COMPILER=CLANG
-		- BOOST_VERSION=1.63
-		
+      env: BUILD_TYPE=Debug COVERALLS=OFF COMPILER=CLANG BOOST_VERSION=1.63
+    
     - os: osx
       compiler: clang
-      env:
-		- BUILD_TYPE=Release
-		- COVERALLS=OFF
-		- COMPILER=CLANG
-		- BOOST_VERSION=1.63
+      env: BUILD_TYPE=Release COVERALLS=OFF COMPILER=CLANG BOOST_VERSION=1.63
 
 install:
   # Install Boost
