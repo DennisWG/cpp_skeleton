@@ -4,6 +4,28 @@ add_executable(test_cpp_skeleton
     dummy.cpp
 )
 
+if (CMAKE_BUILD_TYPE STREQUAL "Coverage")
+    #include(CodeCoverage)
+    #setup_target_for_coverage(cpp_skeleton_coverage test_cpp_skeleton)
+
+    #SET(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
+    #SET(CMAKE_C_FLAGS   "-g -O0 -fprofile-arcs -ftest-coverage")
+#    set_target_properties(test_cpp_skeleton PROPERTIES
+#        COMPILE_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage"
+#    )
+    set_target_properties(
+            ${CMAKE_PROJECT_NAME}-test-coverage PROPERTIES
+            COMPILE_FLAGS "-O0 -g -fprofile-arcs -ftest-coverage"
+            LINK_FLAGS "-O0 -g -lgcov -fprofile-arcs -ftest-coverage"
+    )
+
+    SETUP_TARGET_FOR_COVERAGE(
+        coverage
+        test_cpp_skeleton
+        coverage_report
+    )
+endif()
+
 target_link_libraries(test_cpp_skeleton
     lib_cpp_skeleton
 )
@@ -13,16 +35,5 @@ add_test(test_cpp_skeleton test_cpp_skeleton)
 install(TARGETS test_cpp_skeleton
     RUNTIME  DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
-
-if (CMAKE_BUILD_TYPE STREQUAL "Coverage")
-    #include(CodeCoverage)
-    #setup_target_for_coverage(cpp_skeleton_coverage test_cpp_skeleton)
-
-    SET(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
-    SET(CMAKE_C_FLAGS   "-g -O0 -fprofile-arcs -ftest-coverage")
-#    set_target_properties(test_cpp_skeleton PROPERTIES
-#        COMPILE_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage"
-#    )
-endif()
 
 export(TARGETS lib_cpp_skeleton FILE cpp_skeleton_config.cmake)
