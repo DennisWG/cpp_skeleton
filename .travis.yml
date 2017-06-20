@@ -46,7 +46,7 @@ matrix:
 
 install:
   # Set the Compiler
-  - if [[ "${COMPILER}" != "" ]]; then export CXX=${COMPILER}; fi
+  - if [[ "${COMPILER}" != "" ]]; then export CXX=${COMPILER} fi
   
   # Install Clang, libc++ and libc++abi
   - |
@@ -100,9 +100,19 @@ install:
     fi
   - cmake --version
 
+  - |
+    if ["$COVERALLS" == "ON" ]; then
+      wget http://downloads.sourceforge.net/ltp/lcov-1.12.tar.gz
+      tar xf lcov-1.12.tar.gz
+      sudo make -C lcov-1.12/ install
+      gem install coveralls-lcov
+      CMAKE_OPTIONS+=" -DCMAKE_BUILD_TYPE=Coverage"
+    fi
+
 script:
   - BUILD_DIR=${TRAVIS_BUILD_DIR}/build
   - mkdir -p ${BUILD_DIR} && cd ${BUILD_DIR}
   - cmake .. ${CMAKE_OPTIONS}
   - make
-  - if [ "$BUILD_TYPE" == "Debug" ] || [ "$BUILD_TYPE" == "Release" ]; then ctest -VV --schedule-random; fi
+  - if ["$COVERALLS" == "ON" ]; then make cpp_skeleton_coverage fi
+  - if [ "$BUILD_TYPE" == "Debug" ] || [ "$BUILD_TYPE" == "Release" ]; then ctest -VV --schedule-random fi
