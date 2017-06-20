@@ -120,6 +120,6 @@ script:
 after_success:
   - |
     if [ "$COVERALLS" == "ON" ]; then
-    - lcov --compat-libtool --directory . --capture --output-file coverage.info
-    - coveralls-lcov coverage.info
+      lcov --compat-libtool --directory . --capture --output-file coverage.info
+      coveralls-lcov coverage.info
     fi
