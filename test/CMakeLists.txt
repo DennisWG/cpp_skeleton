@@ -15,9 +15,12 @@ install(TARGETS test_cpp_skeleton
 )
 
 if (CMAKE_BUILD_TYPE STREQUAL "Coverage")
-    include(CodeCoverage)
-    setup_target_for_coverage(cpp_skeleton_coverage test_cpp_skeleton coverage)
+    #include(CodeCoverage)
+    #setup_target_for_coverage(cpp_skeleton_coverage test_cpp_skeleton)
 
-    SET(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
-    SET(CMAKE_C_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
+    #SET(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
+    #SET(CMAKE_C_FLAGS   "-g -O0 -fprofile-arcs -ftest-coverage")
+    SET_TARGET_PROPERTIES(test_cpp_skeleton PROPERTIES
+        COMPILE_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage"
+    )
 endif()
