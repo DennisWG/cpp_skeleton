@@ -14,7 +14,7 @@ if (CMAKE_BUILD_TYPE STREQUAL "Coverage")
 #        COMPILE_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage"
 #    )
     set_target_properties(
-            ${CMAKE_PROJECT_NAME}-test-coverage PROPERTIES
+            test_cpp_skeleton PROPERTIES
             COMPILE_FLAGS "-O0 -g -fprofile-arcs -ftest-coverage"
             LINK_FLAGS "-O0 -g -lgcov -fprofile-arcs -ftest-coverage"
     )
