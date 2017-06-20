@@ -28,3 +28,11 @@ install(DIRECTORY ../include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 install(EXPORT cpp_skeleton_config DESTINATION share/MyLibrary/cmake)
 
 export(TARGETS lib_cpp_skeleton FILE cpp_skeleton_config.cmake)
+
+if (CMAKE_BUILD_TYPE STREQUAL "Coverage")
+    include(CodeCoverage)
+    setup_target_for_coverage(cpp_skeleton_coverage lib_cpp_skeleton coverage)
+
+    SET(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
+    SET(CMAKE_C_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
+endif()
