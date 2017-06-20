@@ -101,7 +101,7 @@ install:
   - cmake --version
 
   - |
-    if ["$COVERALLS" == "ON" ]; then
+    if [ "$COVERALLS" == "ON" ]; then
       wget http://downloads.sourceforge.net/ltp/lcov-1.12.tar.gz
       tar xf lcov-1.12.tar.gz
       sudo make -C lcov-1.12/ install
@@ -114,7 +114,7 @@ script:
   - mkdir -p ${BUILD_DIR} && cd ${BUILD_DIR}
   - cmake .. ${CMAKE_OPTIONS}
   - make
-  - if ["$COVERALLS" == "ON" ]; then make coverage; fi
+  - if [ "$COVERALLS" == "ON" ]; then make coverage; fi
   - if [ "$BUILD_TYPE" == "Debug" ] || [ "$BUILD_TYPE" == "Release" ]; then ctest -VV --schedule-random; fi
 
 after_success:
