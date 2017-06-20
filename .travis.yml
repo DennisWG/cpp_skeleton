@@ -104,7 +104,7 @@ install:
     if [ "$COVERALLS" == "ON" ]; then
       wget http://downloads.sourceforge.net/ltp/lcov-1.12.tar.gz
       tar xf lcov-1.12.tar.gz
-      sudo make -C lcov-1.12/ install
+      make -C lcov-1.12/ install
       gem install coveralls-lcov
       CMAKE_OPTIONS+=" -DCMAKE_BUILD_TYPE=Coverage"
     fi
