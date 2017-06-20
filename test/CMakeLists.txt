@@ -24,3 +24,5 @@ if (CMAKE_BUILD_TYPE STREQUAL "Coverage")
         COMPILE_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage"
     )
 endif()
+
+export(TARGETS lib_cpp_skeleton FILE cpp_skeleton_config.cmake)
