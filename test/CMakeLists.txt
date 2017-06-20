@@ -5,7 +5,7 @@ add_executable(test_cpp_skeleton
 )
 
 if (CMAKE_BUILD_TYPE STREQUAL "Coverage")
-    #include(CodeCoverage)
+    include(CodeCoverage)
     #setup_target_for_coverage(cpp_skeleton_coverage test_cpp_skeleton)
 
     #SET(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
