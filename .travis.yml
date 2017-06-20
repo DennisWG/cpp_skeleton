@@ -34,16 +34,6 @@ matrix:
       compiler: clang
       env: BUILD_TYPE=Release COVERALLS=OFF LLVM_VERSION=3.7.0 BOOST_VERSION=1.63.0
 
-#    - os: osx
-#      compiler: clang
-#      env: BUILD_TYPE=Debug COVERALLS=OFF LLVM_VERSION=3.7.0 BOOST_VERSION=1.63.0
-#      addons: *clang37
-#
-#    - os: osx
-#      compiler: clang
-#     env: BUILD_TYPE=Release COVERALLS=OFF LLVM_VERSION=3.7.0 BOOST_VERSION=1.63.0
-#     addons: *clang37
-
 install:
   # Set the Compiler
   - if [[ "${COMPILER}" != "" ]]; then export CXX=${COMPILER}; fi
