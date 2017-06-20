@@ -20,7 +20,7 @@ if (CMAKE_BUILD_TYPE STREQUAL "Coverage")
 
     #SET(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
     #SET(CMAKE_C_FLAGS   "-g -O0 -fprofile-arcs -ftest-coverage")
-    SET_TARGET_PROPERTIES(test_cpp_skeleton PROPERTIES
+    set_target_properties(test_cpp_skeleton PROPERTIES
         COMPILE_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage"
     )
 endif()
